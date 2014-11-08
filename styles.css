@@ -5,9 +5,15 @@ Feel free to use it if you like. */
 .gameBoard {
   background: black;
   padding: 10px;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
+  border: medium solid rgb(0,170,20);
+  display:block;
+  margin:auto;
+}
+.high, .current, .collisions {
+  width: 120px;
+  margin:0 auto;
+}
+
+.collisions {
+  padding-bottom: 10px;
 }

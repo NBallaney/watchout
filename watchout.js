@@ -69,20 +69,24 @@ var update = function() {
                                        .data(createEnemies());
 
   enemies.transition()
-         .duration(1800)
-         .attr('cx', function(d){return d.x})
-         .attr('cy', function(d){return d.y})
-         .tween('checker', checkCollision)
+           .duration(1800)
+           .attr('cx', function(d){return d.x})
+           .attr('cy', function(d){return d.y})
+           .tween('checker', checkCollision)
 
   enemies.enter()
          .append('circle')
          .attr('cx', function(d){return d.x})
          .attr('cy', function(d){return d.y})
-         .attr('r', 10)
-         .style('fill', 'white')
+         .attr('r', 0)
+         .style('fill', 'black')
          .style('stroke', 'blue')
          .style('stroke-width', 2)
-         .attr('class', 'enemies');
+         .attr('class', 'enemies')
+         .transition()
+          .duration(1400)
+          .attr('r',10)
+          .style('fill','white');
 
 };
 
@@ -98,8 +102,8 @@ var checkCollision = function() {
           d3.selectAll('.gameBoard')
             .style('background','red')
             .transition()
-            .duration(115)
-            .style('background','black');
+              .duration(115)
+              .style('background','black');
           gameStats.collisions++;
           resetScore();
         }
